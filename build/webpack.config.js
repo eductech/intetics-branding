@@ -22,6 +22,7 @@ module.exports = {
     },
     module: {
         rules: [
+            { test: /\.(otf|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=100000' },
             { test: /\.handlebars$/, loader: "handlebars-loader" },
             {
                 test: /\.(scss|css)$/,
@@ -97,14 +98,14 @@ module.exports = {
             options: {
               handlebarsLoader: {}
             }
-          }),
-          new MiniCssExtractPlugin({
+        }),
+        new MiniCssExtractPlugin({
             filename: "[name]-styles.css",
             chunkFilename: "[id].css"
-          }),  
+        }),  
          
         new HtmlWebpackPlugin({
-            title: 'My awesome service',
+            title: 'Intetics Inc. | Custom Sofware Development Company',
             template: './src/index.handlebars',
             minify: !isDevelopment && {
                 html5: true,
@@ -113,7 +114,6 @@ module.exports = {
                 removeComments: true,
                 removeEmptyElements: true
             },
-
-          })
-      ]
-  };
+        })
+    ]
+};
